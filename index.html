@@ -1,1 +1,111 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="shortcut icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><link rel="manifest" href="/manifest.json"/><title>Eduardo Borges - Front End Developer</title><link href="/static/css/main.256cc384.chunk.css" rel="stylesheet"></head><body><div id="root"></div><script>!function(l){function e(e){for(var r,t,n=e[0],o=e[1],u=e[2],f=0,i=[];f<n.length;f++)t=n[f],p[t]&&i.push(p[t][0]),p[t]=0;for(r in o)Object.prototype.hasOwnProperty.call(o,r)&&(l[r]=o[r]);for(s&&s(e);i.length;)i.shift()();return c.push.apply(c,u||[]),a()}function a(){for(var e,r=0;r<c.length;r++){for(var t=c[r],n=!0,o=1;o<t.length;o++){var u=t[o];0!==p[u]&&(n=!1)}n&&(c.splice(r--,1),e=f(f.s=t[0]))}return e}var t={},p={1:0},c=[];function f(e){if(t[e])return t[e].exports;var r=t[e]={i:e,l:!1,exports:{}};return l[e].call(r.exports,r,r.exports,f),r.l=!0,r.exports}f.m=l,f.c=t,f.d=function(e,r,t){f.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},f.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},f.t=function(r,e){if(1&e&&(r=f(r)),8&e)return r;if(4&e&&"object"==typeof r&&r&&r.__esModule)return r;var t=Object.create(null);if(f.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:r}),2&e&&"string"!=typeof r)for(var n in r)f.d(t,n,function(e){return r[e]}.bind(null,n));return t},f.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return f.d(r,"a",r),r},f.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},f.p="/";var r=window.webpackJsonp=window.webpackJsonp||[],n=r.push.bind(r);r.push=e,r=r.slice();for(var o=0;o<r.length;o++)e(r[o]);var s=n;a()}([])</script><script src="/static/js/2.71f67905.chunk.js"></script><script src="/static/js/main.3ced2663.chunk.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json"/>
+  <style>
+    :root{
+      --dark: #121212;
+      --background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
+    }
+
+    *{
+      font-family: 'Inter', sans-serif;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      color: aliceblue;
+    }
+    .root {
+      display: flex;
+      background:var(--dark);
+    }
+
+    .hero {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        width: 95vw;
+        padding: 0 30px;
+      }
+    }
+
+    @media (min-width: 801px) {
+      .container {
+        margin: 0 auto;
+        width: 980px;
+        padding: 0 30px;
+      }
+    }
+
+    .title {
+      font-size: 45px;
+      font-size: 72px;
+      background-clip: text  !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent  !important;
+    }
+
+    .description{
+      margin: 50px 0;
+    }
+    .links {
+      display: inline-flex;
+    }
+
+    .links a {
+      margin-right: 20px;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+ 
+  <title>Eduardo Borges</title>
+</head>
+<body>
+  <div class="root">
+    <div class="hero">
+      <div class="container">
+        <h1 class="title">Hello! <br> Call me Edu.</h1>
+        <p class="description">
+          A cray developer passionated about his work. <br>
+          I currently works as engineer manager at <a href="http://capitual.com">Capitual</a>
+        </p>
+        <div class="links">
+          <a href="http://github.com/eduardoborges">Github</a>
+          <a href="https://www.linkedin.com/in/euduardoborges/">Linkedin</a>
+          <a href="https://twitter.com/euduardoborges">Twitter</a>
+          <a href="https://unsplash.com/@euduardoborges">Unsplash</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  const linearGradient = (angle = 90)=> `linear-gradient(${angle}deg, #12c2e9, #c471ed, #f64f59)`;
+  let title = document.querySelector('.title');
+  let deg = 0;
+  setInterval(()=>{
+    title.style.background = linearGradient(deg);
+    deg = deg >= 360 ? 0 : deg + 2;
+  }, 100);
+</script>
+</html>
