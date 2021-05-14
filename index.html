@@ -7,19 +7,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="manifest" href="manifest.json"/>
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <style>
     :root{
       --dark: #121212;
-      --background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */;
     }
 
-    *{
+    * {
       font-family: 'Inter', sans-serif;
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       color: aliceblue;
     }
+
     .root {
       display: flex;
       background:var(--dark);
@@ -31,10 +32,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-
-    .container {
-      
     }
 
     @media (max-width: 800px) {
@@ -84,9 +81,9 @@
   <div class="root">
     <div class="hero">
       <div class="container">
-        <h1 class="title">Hello! <br> Call me Edu.</h1>
+        <h1 class="title">Hi! <br> Call me Edu.</h1>
         <p class="description">
-          A cray developer passionated about his work. <br>
+          A crazy developer passionated about his work.<br>
           I currently works as engineer manager at <a href="http://capitual.com">Capitual</a>
         </p>
         <div class="links">
@@ -100,12 +97,12 @@
   </div>
 </body>
 <script>
-  const linearGradient = (angle = 90)=> `linear-gradient(${angle}deg, #12c2e9, #c471ed, #f64f59)`;
+  const linearGradient = (angle = 0)=> `linear-gradient(${angle}deg, #C6FFDD, #FBD786, #f7797d)`;
   let title = document.querySelector('.title');
   let deg = 0;
   setInterval(()=>{
     title.style.background = linearGradient(deg);
-    deg = deg >= 360 ? 0 : deg + 2;
-  }, 100);
+    deg = deg >= 360 ? 0 : deg + 1;
+  }, 50);
 </script>
 </html>
