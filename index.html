@@ -1,9 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og:https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Metadata -->
+	<meta name="author" content="Eduardo Borges" />
+	<meta name="description" content="I create experiences. Not like god, but like a good software developer." />
+	<meta name="keywords" content="eduardo,borges,euduardoborges,portfolio,website,ux,ui,cloud,gcp,design,branding,experience,ios,product,engineering,manager,freelance,interface,software,developer,programmer,hire,work,contact" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Eduardo Borges">
+	<meta property="og:description" content="I create experiences. Not like god, but like a good software developer.">
+	<meta property="og:image" content="https://secure.gravatar.com/avatar/702ac0665ce849121a29afb66945198b?s=500">
+	<meta property="og:url" content="https://eduardoborges.dev/">
+	<meta property="og:site_name" content="Eduardo Borges">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@euduardoborges">
+	<meta name="twitter:image" content="https://secure.gravatar.com/avatar/702ac0665ce849121a29afb66945198b?s=500">
+	<meta name="twitter:image:alt" content="me.">
+	<meta name="Resource-type" content="Document" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="manifest" href="manifest.json"/>
@@ -11,19 +30,22 @@
   <style>
     :root{
       --dark: #121212;
+      overflow: hidden;
     }
 
-    * {
+    *:not(.blur) {
       font-family: 'Inter', sans-serif;
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       color: aliceblue;
+      transition: ease-in-out 0.2s;
     }
 
     .root {
       display: flex;
       background:var(--dark);
+      
     }
 
     .hero {
@@ -32,6 +54,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      z-index: 4;
     }
 
     @media (max-width: 800px) {
@@ -59,6 +82,7 @@
 
     .description{
       margin: 50px 0;
+      z-index: 3;
     }
     .links {
       display: inline-flex;
@@ -67,10 +91,31 @@
     .links a {
       margin-right: 20px;
       text-decoration: none;
+      z-index: 3;
     }
 
     .links a:hover {
       text-decoration: underline;
+    }
+
+    .blur {
+      height: 400px;
+      width: 400px;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      background: linear-gradient(#C6FFDD, #FBD786, #f7797d);
+      border-radius: 100%;
+      filter: blur(80px);
+      opacity: 0.1;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .blur.hover {
+      filter: blur(150px);
+      opacity: 1;
+      transition: ease-in-out 0.2s;
     }
   </style>
 
@@ -79,6 +124,7 @@
 </head>
 <body>
   <div class="root">
+    <div class="blur"></div>
     <div class="hero">
       <div class="container">
         <h1 class="title">Hi! <br> Call me Edu.</h1>
@@ -99,11 +145,37 @@
 <script>
   const linearGradient = (angle = 0)=> `linear-gradient(${angle}deg, #C6FFDD, #FBD786, #f7797d)`;
   let title = document.querySelector('.title');
+  const blurEl = document.querySelector('.blur');
+  const links = document.querySelectorAll('a');
+
   let deg = 0;
-  setInterval(()=>{
-    title.style.background = linearGradient(deg);
-    deg = deg >= 360 ? 0 : deg + 1;
-  }, 50);
+  // setInterval(()=>{
+  //   title.style.background = linearGradient(deg);
+  //   deg = deg >= 360 ? 0 : deg + 1;
+  // }, 50);
+
+  document.addEventListener('mousemove', (e)=>{
+    let x = e.clientX;
+    let y = e.clientY;
+    let xDeg = (x / window.innerWidth) * 360;
+    let yDeg = (y / window.innerHeight) * 360;
+
+    blurEl.style.top = `${y - 400/2}px`;
+    blurEl.style.left = `${x - 400/2}px`;
+    
+    title.style.background = linearGradient(xDeg);
+  });
+
+  links.forEach(item=>{
+    item.addEventListener('mouseenter', ()=>{
+      blurEl.classList.add('hover');
+    })
+    item.addEventListener('mouseleave', ()=>{
+      blurEl.classList.remove('hover');
+    })
+  })
+
+
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156185194-1"></script>
